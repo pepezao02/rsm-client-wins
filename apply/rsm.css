@@ -17,10 +17,10 @@
   text-rendering: optimizeLegibility;
 
   /* ---- stock ---- */
-  --stock:        #1B1B1B;
-  --stock-deep:   #131313;
-  --stock-raised: #232323;
-  --stock-edge:   #2E2E2E;
+  --stock:        #1F1F1F;   /* da referencia dela */
+  --stock-deep:   #171717;   /* pocos e rodape, um passo abaixo do ground */
+  --stock-raised: #2A2A2A;   /* da referencia dela */
+  --stock-edge:   #363636;   /* hairline legivel sobre 1F/2A */
 
   /* ---- ink ---- */
   --champagne:    #E8DCC8;
