@@ -376,7 +376,7 @@
 .rsm-proof-item{ margin:0; }
 .rsm-proof-item .rsm-slot{ width:100%; aspect-ratio:4/3; display:grid; }
 .rsm-proof-item img{
-  width:100%; height:auto; display:block;
+  width:100%; aspect-ratio:4/3; object-fit:contain; padding:16px; display:block;
   border-radius:var(--r-media); background:var(--stock-deep);
   box-shadow: inset 0 0 0 1px var(--stock-edge), var(--deboss);
 }
