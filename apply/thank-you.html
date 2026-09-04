@@ -39,14 +39,10 @@
   <section class="rsm-sec is-tight">
     <div class="rsm-wrap">
 
-      <!-- THANK-YOU VIDEO GOES HERE.
-           Replace the .rsm-slot child with:
-           <video controls playsinline poster="POSTER_URL"><source src="VIDEO_URL" type="video/mp4"></video> -->
-      <div class="rsm-frame is-placeholder" data-rise data-todo="ty-video">
-        <div class="rsm-slot">
-          <span class="ring"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
-          <p>Jasmine's thank-you video mounts here</p>
-        </div>
+      <div class="rsm-frame" data-rise>
+        <video controls playsinline preload="metadata" poster="assets/ty-poster.jpg">
+          <source src="assets/ty.mp4" type="video/mp4">
+        </video>
       </div>
 
     </div>
