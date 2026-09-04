@@ -42,18 +42,18 @@
         Fill Out The Form To Secure Your Call
       </p>
 
-      <!-- TYPEFORM GOES HERE.
-           Replace the inner div with:  <div data-tf-live="TYPEFORM_ID"></div>
-           plus the Typeform embed script: //embed.typeform.com/next/embed.js -->
-      <div class="rsm-embed" data-rise data-todo="typeform">
-        <div>
-          <div class="mark">TYPEFORM</div>
-          <h3 class="rsm-h3">The application form mounts here</h3>
-          <p class="rsm-fine" style="margin-top:8px;max-width:46ch;margin-inline:auto">
-            Same eight questions as the current GoHighLevel survey, rebuilt in Typeform.
-          </p>
-        </div>
-      </div>
+      <!-- Typeform t2GOVM2N, embedded inline.
+           The account has no redirect-on-completion, so the jump to the schedule
+           page is done here instead: data-tf-on-submit calls rsmApplicationSent(). -->
+      <div class="rsm-embed is-live" data-rise
+           data-tf-live="t2GOVM2N"
+           data-tf-on-submit="rsmApplicationSent"></div>
+      <script src="//embed.typeform.com/next/embed.js"></script>
+      <script>
+        window.rsmApplicationSent = function () {
+          window.location.href = 'https://revenuesystemsmodel.com/book-8005';
+        };
+      </script>
 
     </div>
   </section>

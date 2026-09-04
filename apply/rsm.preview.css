@@ -391,6 +391,11 @@
 .rsm-proof-item figcaption b{ color:var(--blue-lit); font-weight:600; }
 @container rsm (max-width: 620px){ .rsm-proof{ grid-template-columns:1fr; } }
 
+/* ---------- embed com conteudo real (sem o padding do placeholder) ---------- */
+.rsm-embed.is-live{ display:block; padding:0; overflow:hidden; }
+.rsm-embed.is-live > iframe,
+.rsm-embed.is-live > div{ width:100%; height:100%; min-height:inherit; border:0; border-radius:var(--r-media); }
+
 
 /* ---------- preview-only page switcher (not shipped to GHL) ---------- */
 .rsmnav{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:4px;flex-wrap:wrap;
