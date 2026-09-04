@@ -23,6 +23,13 @@
     var q = new URLSearchParams(location.search);
     var startRaw = q.get('event_start_time') || q.get('start') || q.get('start_time');
     var endRaw = q.get('event_end_time') || q.get('end') || q.get('end_time');
+    // Preview only: on the Vercel/localhost review copy, fall back to a sample
+    // slot so the buttons can be seen. Never fires on the live funnel domain.
+    var isPreview = /\.vercel\.app$|^localhost$|^127\.0\.0\.1$/.test(location.hostname);
+    if (!startRaw && isPreview) {
+      var d = new Date(Date.now() + 7 * 864e5); d.setHours(10, 0, 0, 0);
+      startRaw = d.toISOString();
+    }
     if (!startRaw) { box.setAttribute('hidden', ''); return; }
 
     var start = new Date(startRaw);
