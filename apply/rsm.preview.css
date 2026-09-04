@@ -385,7 +385,8 @@
 }
 .rsm-proof-item .rsm-slot p{ font-size:12px; letter-spacing:.14em; text-transform:uppercase; }
 .rsm-proof-item figcaption{
-  margin-top:12px; font-size:14px; line-height:1.45; color:var(--champagne-lo);
+  margin-top:14px; font-size:clamp(14px,1.35cqi,15.5px); line-height:1.5;
+  color:var(--champagne-lo); max-width:46ch;
 }
 .rsm-proof-item figcaption b{ color:var(--blue-lit); font-weight:600; }
 @container rsm (max-width: 620px){ .rsm-proof{ grid-template-columns:1fr; } }
