@@ -17,10 +17,10 @@
   text-rendering: optimizeLegibility;
 
   /* ---- stock ---- */
-  --stock:        #1F1F1F;   /* da referencia dela */
-  --stock-deep:   #171717;   /* pocos e rodape, um passo abaixo do ground */
-  --stock-raised: #2A2A2A;   /* da referencia dela */
-  --stock-edge:   #363636;   /* hairline legivel sobre 1F/2A */
+  --stock:        #000000;   /* plain black, pedido dela no video */
+  --stock-deep:   #080808;   /* pocos e rodape */
+  --stock-raised: #101010;   /* alerta e superficie elevada */
+  --stock-edge:   #262626;   /* hairline legivel sobre preto */
 
   /* ---- ink ---- */
   --champagne:    #E8DCC8;
@@ -284,6 +284,76 @@
 .rsmnav a[aria-current=page]{ color:#161616; background:#E8DCC8; font-weight:600; }
 
 /* hero rhythm: open at the top, close into the rule */
-.rsm-sec.is-hero{ padding-block: clamp(72px, 9cqi, 128px) clamp(52px, 6cqi, 84px); }
+.rsm-sec.is-hero{ padding-block: clamp(28px, 4cqi, 56px) clamp(24px, 3cqi, 40px); }
 .rsm-display{ text-wrap: balance; }
 @container rsm (max-width: 560px){ .rsm-display{ font-size: clamp(30px, 9.6cqi, 42px); } }
+
+
+/* ---------- centred variant ---------- */
+.rsm-sec.is-center .rsm-wrap{ max-width:920px; text-align:center; }
+.rsm-sec.is-center .rsm-lead,
+.rsm-sec.is-center .rsm-body{ margin-inline:auto; }
+.rsm-sec.is-center .rsm-display{ text-align:center; }
+
+/* ---------- boxed qualifier label ---------- */
+.rsm-pill{
+  display:inline-block; padding:11px 22px; border-radius:var(--r);
+  font-family:'Montserrat',Helvetica,Arial,sans-serif; font-weight:800;
+  font-size:clamp(12px,1.25cqi,15px); letter-spacing:.06em; text-transform:uppercase;
+  color:var(--champagne);
+  box-shadow: inset 0 0 0 1px rgba(232,220,200,.42), var(--press);
+  margin-bottom:26px;
+}
+
+/* ---------- boxed section heading ---------- */
+.rsm-boxhead{
+  display:inline-block; padding:13px 26px; border-radius:var(--r);
+  font-family:'Montserrat',Helvetica,Arial,sans-serif; font-weight:800;
+  font-size:clamp(16px,1.9cqi,22px); letter-spacing:.05em; text-transform:uppercase;
+  color:#FFF; box-shadow: inset 0 0 0 1px rgba(232,220,200,.55);
+}
+
+/* ---------- red status bar (from her reference thank-you page) ---------- */
+.rsm-bar{
+  background:#D93025; color:#FFF; text-align:center;
+  padding:11px 18px; font-weight:700; font-size:clamp(13px,1.35cqi,16px); letter-spacing:.01em;
+}
+
+/* ---------- logo lockup ---------- */
+.rsm-logo{ display:block; height:clamp(44px,5cqi,62px); width:auto; margin:0 auto 30px; opacity:.94; }
+
+/* ---------- important note (reference wording, centred) ---------- */
+.rsm-note{
+  font-size:clamp(17px,2cqi,24px); line-height:1.45; color:var(--champagne);
+  max-width:46ch; margin:0 auto;
+}
+.rsm-note b{ color:var(--alert); font-weight:700; }
+
+@container rsm (max-width: 560px){
+  .rsm-pill{ padding:9px 16px; letter-spacing:.04em; margin-bottom:20px; }
+  .rsm-boxhead{ padding:11px 18px; }
+}
+
+/* ---------- display, mid scale (a copy da referencia e longa) ---------- */
+.rsm-display.is-mid{ font-size:clamp(27px, 4.3cqi, 53px); line-height:1.08; letter-spacing:-.022em; }
+@container rsm (max-width: 560px){ .rsm-display.is-mid{ font-size:clamp(24px, 7cqi, 32px); } }
+
+/* ---------- calendar-invite screenshot ---------- */
+.rsm-invite{
+  border-radius:var(--r-media); overflow:hidden; max-width:900px; margin:0 auto;
+  box-shadow: inset 0 0 0 1px var(--stock-edge), var(--deboss); background:var(--stock-deep);
+}
+.rsm-invite img{ width:100%; height:auto; display:block; }
+
+/* ---------- GHL hardening ---------- */
+.rsm{ width:100%; margin:0; }
+
+
+/* ---------- preview-only page switcher (not shipped to GHL) ---------- */
+.rsmnav{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:4px;flex-wrap:wrap;
+  padding:10px clamp(20px,5vw,52px);background:rgba(0,0,0,.96);border-bottom:1px solid #262626;
+  font-family:'Inter Tight',-apple-system,Segoe UI,Helvetica,Arial,sans-serif}
+.rsmnav .lab{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#5E5852;margin-right:14px}
+.rsmnav a{font-size:12.5px;font-weight:500;letter-spacing:.02em;color:#7E776C;padding:7px 13px;border-radius:4px;text-decoration:none}
+.rsmnav a:hover{color:#E8DCC8;background:rgba(232,220,200,.07)}
+.rsmnav a[aria-current=page]{color:#161616;background:#E8DCC8;font-weight:600}
