@@ -372,9 +372,9 @@
 }
 
 /* ---------- payment proof grid (phone screenshots, 9:16) ---------- */
-.rsm-proof{ display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(14px,1.8cqi,24px); }
+.rsm-proof{ display:grid; grid-template-columns:repeat(2,1fr); gap:clamp(16px,2.2cqi,30px); }
 .rsm-proof-item{ margin:0; }
-.rsm-proof-item .rsm-slot{ width:100%; aspect-ratio:9/16; display:grid; }
+.rsm-proof-item .rsm-slot{ width:100%; aspect-ratio:4/3; display:grid; }
 .rsm-proof-item img{
   width:100%; height:auto; display:block;
   border-radius:var(--r-media); background:var(--stock-deep);
@@ -385,9 +385,7 @@
   margin-top:12px; font-size:14px; line-height:1.45; color:var(--champagne-lo);
 }
 .rsm-proof-item figcaption b{ color:var(--blue-lit); font-weight:600; }
-@container rsm (max-width: 980px){ .rsm-proof{ grid-template-columns:repeat(3,1fr); } }
-@container rsm (max-width: 720px){ .rsm-proof{ grid-template-columns:repeat(2,1fr); } }
-@container rsm (max-width: 420px){ .rsm-proof{ grid-template-columns:1fr; } }
+@container rsm (max-width: 620px){ .rsm-proof{ grid-template-columns:1fr; } }
 
 
 /* ---------- preview-only page switcher (not shipped to GHL) ---------- */
