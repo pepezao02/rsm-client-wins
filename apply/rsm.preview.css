@@ -393,8 +393,13 @@
 
 /* ---------- embed com conteudo real (sem o padding do placeholder) ---------- */
 .rsm-embed.is-live{ display:block; padding:0; overflow:hidden; }
-.rsm-embed.is-live > iframe,
-.rsm-embed.is-live > div{ width:100%; height:100%; min-height:inherit; border:0; border-radius:var(--r-media); }
+/* createWidget nests the iframe inside a wrapper, so target any descendant,
+   not just a direct child, and anchor it to the well which is position:relative. */
+.rsm-embed.is-live > div{ position:absolute; inset:0; }
+.rsm-embed.is-live iframe{
+  position:absolute; inset:0; width:100%; height:100%;
+  border:0; border-radius:var(--r-media);
+}
 
 /* Print do convite: a versao larga e 1200x172 e vira uma tirinha ilegivel no
    celular; a vertical e 623x656. Troca por container query, igual ao resto. */
