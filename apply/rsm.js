@@ -92,7 +92,7 @@
      The official widget normally mounts itself into [data-tf-live]. Some
      extensions and blockers stop it and it just sits on data-tf-loading,
      leaving an empty box where the only conversion point should be. If no
-     iframe has appeared after 6s, mount a plain one instead.
+     iframe has appeared after 4s, mount a plain one instead.
      The redirect to scheduling runs off the form's postMessage, so it fires
      whichever of the two paths ends up rendering.
      --------------------------------------------------------------- */
@@ -112,7 +112,7 @@
       f.style.cssText = 'width:100%;height:100%;min-height:inherit;border:0';
       box.appendChild(f);
       box.removeAttribute('data-tf-loading');
-    }, 6000);
+    }, 4000);
 
     window.addEventListener('message', function (ev) {
       var host = '';
