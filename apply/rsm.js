@@ -99,7 +99,7 @@
   (function typeformFallback() {
     var box = root.querySelector('[data-tf-live]');
     if (!box) return;
-    var NEXT = 'https://revenuesystemsmodel.com/book-8005';
+    var NEXT = 'https://revenuesystemsmodel.com/book-a-call';
 
     setTimeout(function () {
       if (box.querySelector('iframe')) return;
