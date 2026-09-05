@@ -35,7 +35,7 @@
     var start = new Date(startRaw);
     if (isNaN(start)) { box.setAttribute('hidden', ''); return; }
     var end = endRaw ? new Date(endRaw) : null;
-    if (!end || isNaN(end)) end = new Date(start.getTime() + 45 * 60000);
+    if (!end || isNaN(end)) end = new Date(start.getTime() + 40 * 60000);
 
     var title = box.getAttribute('data-cal-title') || 'Consultation Call';
     var details = box.getAttribute('data-cal-details') || '';

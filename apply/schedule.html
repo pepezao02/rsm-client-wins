@@ -38,20 +38,16 @@
   <section class="rsm-sec is-tight">
     <div class="rsm-wrap">
 
-      <!-- BOOKING CALENDAR GOES HERE.
-           OnceHub:  <iframe src="https://go.oncehub.com/BOOKING_PAGE"></iframe>
-           Calendly: <iframe src="https://calendly.com/USER/EVENT?hide_gdpr_banner=1&background_color=000000&text_color=E8DCC8&primary_color=7FA0AA"></iframe>
-           45-minute Consultation Call. Reminders at 2 days, 1 day, 3 hours and 30 minutes. -->
-      <div class="rsm-embed" data-rise data-todo="booking">
-        <div>
-          <div class="mark">BOOKING CALENDAR</div>
-          <h3 class="rsm-h3">The scheduler mounts here</h3>
-          <p class="rsm-fine" style="margin-top:8px;max-width:48ch;margin-inline:auto">
-            45-minute Consultation Call, with the reminder sequence at 2 days, 1 day,
-            3 hours and 30 minutes before.
-          </p>
-        </div>
-      </div>
+      <!-- Calendly inline embed. 40-minute Consultation Call.
+           The colour params only apply on paid Calendly plans; on free the widget
+           renders in its own light theme, which still sits fine inside the frame.
+           "Pass event details to your redirect page" must stay ON in the event's
+           Confirmation Page settings, or the add-to-calendar buttons on the
+           confirmation page have no times to work from. -->
+      <div class="rsm-embed is-live calendly-inline-widget" data-rise
+           data-url="https://calendly.com/revenue-systems-model/consultation-call?hide_gdpr_banner=1&background_color=000000&text_color=E8DCC8&primary_color=7FA0AA"
+           style="min-width:320px;height:720px"></div>
+      <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
     </div>
   </section>
