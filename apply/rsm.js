@@ -9,6 +9,21 @@
   try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
 
   /* ---------------------------------------------------------------
+     Full bleed inside GoHighLevel.
+     A GHL row is max-width boxed and centred, so on a wide screen the strip
+     either side of it shows the SECTION's own background, not this block's,
+     and reads as white margins. Paint this block's ancestors black so the page
+     is black edge to edge whatever width the row is set to. Only touches
+     ancestors of this block.
+     --------------------------------------------------------------- */
+  (function fullBleed() {
+    var n = root.parentElement;
+    while (n && n !== document.body) { n.style.backgroundColor = '#000'; n = n.parentElement; }
+    if (document.body) document.body.style.backgroundColor = '#000';
+    if (document.documentElement) document.documentElement.style.backgroundColor = '#000';
+  })();
+
+  /* ---------------------------------------------------------------
      Add-to-calendar buttons.
      The booking tool appends the event times to the redirect URL.
        Calendly : ?event_start_time=...&event_end_time=...
