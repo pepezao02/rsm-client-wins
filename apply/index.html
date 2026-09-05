@@ -46,17 +46,44 @@
         Fill Out The Form To Secure Your Call
       </p>
 
-      <!-- Typeform t2GOVM2N, embedded inline.
-           The account has no redirect-on-completion, so the jump to the schedule
-           page is done here instead: data-tf-on-submit calls rsmApplicationSent(). -->
-      <div class="rsm-embed is-live"
-           data-tf-live="t2GOVM2N"
-           data-tf-on-submit="rsmApplicationSent"></div>
+      <!-- Typeform t2GOVM2N.
+           Mounted through tf.createWidget rather than the data-tf-live auto-mount,
+           because the SDK only reads tf-live, tf-widget, tf-popover, tf-popup,
+           tf-sidetab, tf-slider, tf-region, tf-hubspot and tf-embed-ts. There is no
+           data-tf-on-submit, so the only way to hook the submit is this API.
+           The account has no redirect-on-completion, so the jump to scheduling
+           happens in onSubmit. opacity 0 lets the black page show through the form. -->
+      <div class="rsm-embed is-live" id="rsm-typeform" data-rsm-tf="t2GOVM2N"></div>
       <script src="https://embed.typeform.com/next/embed.js" async></script>
       <script>
-        window.rsmApplicationSent = function () {
-          window.location.href = 'https://revenuesystemsmodel.com/book-a-call';
-        };
+        (function () {
+          var NEXT = 'https://revenuesystemsmodel.com/book-a-call';
+          var el = document.getElementById('rsm-typeform');
+          var sent = false;
+          function go() { if (sent) return; sent = true; window.location.href = NEXT; }
+
+          function mount() {
+            if (!window.tf || !window.tf.createWidget || !el) return false;
+            window.tf.createWidget('t2GOVM2N', {
+              container: el,
+              opacity: 0,
+              hideHeaders: true,
+              hideFooter: true,
+              inlineOnMobile: true,
+              onSubmit: go
+            });
+            el.setAttribute('data-rsm-mounted', 'widget');
+            return true;
+          }
+
+          /* embed.js is async, so it may not have run yet when this does. */
+          if (!mount()) {
+            var n = 0;
+            var poll = setInterval(function () {
+              if (mount() || ++n > 100) clearInterval(poll);
+            }, 60);
+          }
+        })();
       </script>
 
     </div>

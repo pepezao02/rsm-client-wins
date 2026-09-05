@@ -97,30 +97,37 @@
      whichever of the two paths ends up rendering.
      --------------------------------------------------------------- */
   (function typeformFallback() {
-    var box = root.querySelector('[data-tf-live]');
+    var box = root.querySelector('[data-rsm-tf]');
     if (!box) return;
     var NEXT = 'https://revenuesystemsmodel.com/book-a-call';
+    var sent = false;
 
     setTimeout(function () {
       if (box.querySelector('iframe')) return;
       var f = document.createElement('iframe');
-      f.src = 'https://form.typeform.com/to/' + box.getAttribute('data-tf-live') +
-              '?typeform-embed=embed-widget&embed-hide-footer=true';
+      f.src = 'https://form.typeform.com/to/' + box.getAttribute('data-rsm-tf') +
+              '?typeform-embed=embed-widget&embed-hide-footer=true' +
+              '&embed-hide-headers=true&embed-opacity=0';
       f.title = 'Application form';
       f.setAttribute('frameborder', '0');
       f.setAttribute('allow', 'camera; microphone; autoplay; encrypted-media;');
       f.style.cssText = 'width:100%;height:100%;min-height:inherit;border:0';
       box.appendChild(f);
-      box.removeAttribute('data-tf-loading');
+      box.setAttribute('data-rsm-mounted', 'fallback');
     }, 4000);
 
+    /* Second net. The SDK's own handlers read event.data.type === 'form-submit',
+       so this matches whichever iframe ended up rendering, widget or fallback. */
     window.addEventListener('message', function (ev) {
       var host = '';
       try { host = new URL(ev.origin).hostname; } catch (e) { return; }
       if (host !== 'typeform.com' && host.slice(-13) !== '.typeform.com') return;
       var d = ev.data || {};
       var type = String(d.type || d.event || '');
-      if (/submit/i.test(type)) window.location.href = NEXT;
+      if (/form-submit|submitted/i.test(type) && !sent) {
+        sent = true;
+        window.location.href = NEXT;
+      }
     });
   })();
 
