@@ -396,9 +396,14 @@
 .rsm-embed.is-live > iframe,
 .rsm-embed.is-live > div{ width:100%; height:100%; min-height:inherit; border:0; border-radius:var(--r-media); }
 
-/* o print vertical (celular) e quase quadrado: estreita a moldura pra ele nao gigantear */
-.rsm-invite picture{ display:block; }
-@container rsm (max-width: 760px){ .rsm-invite{ max-width:440px; } }
+/* Print do convite: a versao larga e 1200x172 e vira uma tirinha ilegivel no
+   celular; a vertical e 623x656. Troca por container query, igual ao resto. */
+.rsm-invite .is-tall{ display:none; }
+@container rsm (max-width: 760px){
+  .rsm-invite{ max-width:440px; }
+  .rsm-invite .is-wide{ display:none; }
+  .rsm-invite .is-tall{ display:block; }
+}
 
 
 /* ---------- preview-only page switcher (not shipped to GHL) ---------- */
