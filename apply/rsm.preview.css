@@ -405,6 +405,39 @@
   .rsm-invite .is-tall{ display:block; }
 }
 
+/* ---------- paginas legais: coluna longa e legivel ---------- */
+.rsm-legal{ max-width:74ch; }
+.rsm-legal .eff{
+  font-size:13px; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--champagne-xlo); margin-bottom:clamp(28px,3.4cqi,44px);
+}
+.rsm-legal h2{
+  font-family:'Montserrat',Helvetica,Arial,sans-serif; font-weight:800;
+  font-size:clamp(17px,1.9cqi,21px); line-height:1.25; letter-spacing:-.01em;
+  color:#FFF; margin:clamp(34px,4cqi,52px) 0 12px;
+}
+.rsm-legal h2:first-of-type{ margin-top:0; }
+.rsm-legal h2 span{ color:var(--blue-lit); margin-right:10px; font-variant-numeric:tabular-nums; }
+.rsm-legal p{ font-size:15.5px; line-height:1.68; color:var(--champagne-lo); margin-bottom:14px; }
+.rsm-legal ul{ margin:0 0 14px; padding:0; }
+.rsm-legal li{
+  font-size:15.5px; line-height:1.68; color:var(--champagne-lo);
+  padding-left:20px; position:relative; margin-bottom:8px;
+}
+.rsm-legal li::before{
+  content:''; position:absolute; left:2px; top:.72em;
+  width:5px; height:5px; border-radius:99px; background:var(--blue-lit);
+}
+.rsm-legal b{ color:var(--champagne); font-weight:600; }
+.rsm-legal a{ color:var(--blue-lit); border-bottom:1px solid rgba(127,160,170,.4); }
+.rsm-legal a:hover{ border-bottom-color:var(--blue-lit); }
+.rsm-legal .box{
+  padding:20px 22px; border-radius:var(--r); margin:22px 0;
+  background:var(--stock-raised);
+  box-shadow: inset 0 0 0 1px var(--stock-edge), inset 3px 0 0 var(--alert), var(--press);
+}
+.rsm-legal .box p:last-child{ margin-bottom:0; }
+
 
 /* ---------- preview-only page switcher (not shipped to GHL) ---------- */
 .rsmnav{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:4px;flex-wrap:wrap;
