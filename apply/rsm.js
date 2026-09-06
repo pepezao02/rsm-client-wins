@@ -24,6 +24,23 @@
   })();
 
   /* ---------------------------------------------------------------
+     "Submit Your Application" leva ate o formulario.
+     Ela reparou que o bloco parece botao e nao fazia nada, entao ele rola
+     ate o embed em vez de continuar sendo so um rotulo.
+     --------------------------------------------------------------- */
+  (function jumpToForm() {
+    var btns = root.querySelectorAll('[data-rsm-jump]');
+    Array.prototype.forEach.call(btns, function (b) {
+      b.addEventListener('click', function () {
+        var t = root.querySelector(b.getAttribute('data-rsm-jump'));
+        if (!t) return;
+        try { t.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); }
+        catch (e) { t.scrollIntoView(); }
+      });
+    });
+  })();
+
+  /* ---------------------------------------------------------------
      Add-to-calendar buttons.
      The booking tool appends the event times to the redirect URL.
        Calendly : ?event_start_time=...&event_end_time=...

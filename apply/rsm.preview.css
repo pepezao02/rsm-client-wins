@@ -311,6 +311,19 @@
   color:#FFF; box-shadow: inset 0 0 0 1px rgba(232,220,200,.55);
 }
 
+/* Ela reparou que o boxhead parece botao e nao clica. Vira botao de verdade
+   e rola ate o formulario, em vez de virar enfeite. */
+button.rsm-boxhead{
+  border:0; background:none; cursor:pointer; -webkit-appearance:none; appearance:none;
+  transition: box-shadow .3s var(--ease), color .3s var(--ease), transform .12s var(--ease);
+}
+button.rsm-boxhead:hover{
+  color:var(--champagne);
+  box-shadow: inset 0 0 0 1px var(--champagne), 0 0 0 5px rgba(232,220,200,.07);
+}
+button.rsm-boxhead:active{ transform: translateY(1px); }
+button.rsm-boxhead:focus-visible{ outline:2px solid var(--blue-lit); outline-offset:4px; }
+
 /* ---------- red status bar (from her reference thank-you page) ---------- */
 .rsm-bar{
   background:#D93025; color:#FFF; text-align:center;
