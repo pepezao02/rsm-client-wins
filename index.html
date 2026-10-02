@@ -198,6 +198,13 @@ document.documentElement.classList.remove('no-js');
 document.documentElement.classList.add('js');
 
 var WINS = [
+  { name:'Darius', role:'Online coach & personal brand', tags:['Revenue','Video','Systems'],
+    tagline:'DM setter placement', result:'<b>41 booked calls</b> and <b>$28K cash collected</b> in week one, plus $42K in pipeline',
+    proof:'assets/darius-proof.jpg',
+    video:'assets/darius.mp4', img:'assets/darius.jpg', dur:'0:50', date:'2026' },
+  { name:'Carson', role:'Content agency owner', tags:['Agency','Systems','Video'],
+    tagline:'Setter team', result:'Setters <b>trained, onboarded and managed</b>, so he can focus on clients and growth',
+    video:'assets/carson.mp4', img:'assets/carson.jpg', dur:'0:59', date:'2026' },
   { name:'Chris Chren', role:'Content agency owner', tags:['Agency','Show rate','Revenue','Written'],
     tagline:'Agency', result:'Show rate up <b>25%+</b>, biggest month at <b>$400K</b>',
     img:'assets/chris.jpg',
@@ -232,13 +239,17 @@ function initials(n){ return n.split(' ').map(function(p){return p[0];}).join(''
 
 function cardHTML(w, i){
   var media = '';
+  /* print de resultado (ex.: conversa do cliente) acima do video, no mesmo card */
+  if(w.proof){
+    media += '<div class="media proof" style="cursor:default"><img src="'+w.proof+'" alt="'+w.name+' results" loading="lazy"></div>';
+  }
   if(w.video){
-    media = '<div class="media" data-src="'+w.video+'">'+
+    media += '<div class="media" data-src="'+w.video+'">'+
       '<img src="'+w.img+'" alt="'+w.name+'" loading="lazy">'+
       '<button class="pl" aria-label="Play '+w.name+'"><i></i></button>'+
       '<span class="dur">'+w.dur+'</span></div>';
   } else if(w.img){
-    media = '<div class="media" style="cursor:default"><img src="'+w.img+'" alt="'+w.name+'" loading="lazy"></div>';
+    media += '<div class="media" style="cursor:default"><img src="'+w.img+'" alt="'+w.name+'" loading="lazy"></div>';
   }
   var body = '';
   if(w.text){
